@@ -34,6 +34,7 @@ module BrowserIrb
       } else {
         $('body').addClass('terminal-open');
         $('.terminal-area').show();
+        #{@term}.Focus();
       }
       `
     end
