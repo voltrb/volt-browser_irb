@@ -16,7 +16,7 @@ Then in ```app/main/config/dependencies.rb``` you can require it as a dependency
 
 ```ruby
 if Volt.env.development?
-  dependency 'browser_irb'
+  component 'browser_irb'
 end
 ```
 
