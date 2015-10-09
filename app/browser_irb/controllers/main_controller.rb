@@ -2,7 +2,7 @@ module BrowserIrb
   class MainController < Volt::ModelController
 
     # Include the collection helpers for irb
-    if RUBY_PLATFORM == 'opa'
+    if RUBY_PLATFORM == 'opal'
       `
       Opal.Object.$include((($scope.get('Volt')).$$scope.get('CollectionHelpers')))
       `
