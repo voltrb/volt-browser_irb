@@ -26,6 +26,4 @@ Restart the server, and press ESCAPE to toggle the irb on the page.
 
 Currently browser-irb is pretty simple, here's some things I want to add:
 
-- multi-line support
-- store history in session store so it persists between reloads
 - tab completion
