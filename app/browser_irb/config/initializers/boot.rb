@@ -8,3 +8,4 @@
 # unless RUBY_PLATFORM == 'opal'
 # ^^ this will not send compile in code in the conditional to the client.
 # ^^ this include code required in the conditional.
+require 'browser_irb/lib/promise_ext'

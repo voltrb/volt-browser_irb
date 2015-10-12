@@ -22,6 +22,12 @@ end
 
 Restart the server, and press ESCAPE to toggle the irb on the page.
 
+## Helpers
+
+### tp
+
+volt-browser_irb adds the ```#tp``` helper method to the Promise object (short for then_puts).  Calling .tp on the promise will print a ```.inspect``` of the promises resolves value or rejected error when it resolves.  Typically in volt in development, this will be right away, so it can act a little similar to how you might use .sync.inspect on the server.
+
 ## TODO
 
 Currently browser-irb is pretty simple, here's some things I want to add:
