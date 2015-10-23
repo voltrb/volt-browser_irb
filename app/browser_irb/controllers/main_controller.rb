@@ -28,21 +28,23 @@ module BrowserIrb
 
       prompt
 
-      $stdout.write_proc = proc {|str| `#{@term}.Write(str, 'line')` }
-      $stderr.write_proc = proc {|str| `#{@term}.Write(str, 'error')` }
     end
 
     def toggle_console
-      `
-      if ($('body').is('.terminal-open')) {
-        $('body').removeClass('terminal-open');
-        $('.terminal-area').hide();
-      } else {
-        $('body').addClass('terminal-open');
-        $('.terminal-area').show();
-        #{@term}.Focus();
-      }
-      `
+
+      `if ($('body').is('.terminal-open')) {`
+        `$('body').removeClass('terminal-open');`
+        `$('.terminal-area').hide();`
+        $stdout.write_proc = `typeof(process) === 'object' ? function(s){process.stdout.write(s)} : function(s){console.log(s)}`
+        $stderr.write_proc = `typeof(process) === 'object' ? function(s){process.stderr.write(s)} : function(s){console.warn(s)}`
+      `} else {`
+        `$('body').addClass('terminal-open');`
+        `$('.terminal-area').show();`
+        $stdout.write_proc = proc {|str| `#{@term}.Write(str, 'line')` }
+        $stderr.write_proc = proc {|str| `#{@term}.Write(str, 'error')` }
+
+        `#{@term}.Focus();`
+      `}`
     end
 
     def prompt
